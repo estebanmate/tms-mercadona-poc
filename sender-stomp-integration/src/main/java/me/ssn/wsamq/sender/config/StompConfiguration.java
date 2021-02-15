@@ -10,9 +10,6 @@ import org.springframework.messaging.simp.stomp.ReactorNettyTcpStompClient;
 import org.springframework.messaging.simp.stomp.StompHeaders;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 
-/**
- * @author s.nechkin
- */
 @Configuration
 @EnableIntegration
 public class StompConfiguration {

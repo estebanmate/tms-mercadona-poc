@@ -5,9 +5,6 @@ import org.springframework.messaging.simp.user.DestinationUserNameProvider;
 
 import java.security.Principal;
 
-/**
- * @author s.nechkin
- */
 @AllArgsConstructor
 public class SocketDestinationPrincipal implements Principal, DestinationUserNameProvider {
 

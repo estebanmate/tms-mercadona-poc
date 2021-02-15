@@ -20,9 +20,6 @@ import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerCo
 import java.security.Principal;
 import java.util.List;
 
-/**
- * @author s.nechkin
- */
 @Configuration
 @EnableWebSocketMessageBroker
 @AllArgsConstructor

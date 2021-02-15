@@ -6,7 +6,6 @@ import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.Assert;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -19,9 +18,6 @@ import java.nio.charset.StandardCharsets;
 import java.security.Principal;
 import java.util.concurrent.Executor;
 
-/**
- * @author s.nechkin
- */
 @Controller
 public class MessageController {
 
@@ -76,7 +72,7 @@ public class MessageController {
                     out.flush();
                 }
 
-                // soutResponse(con);
+                soutResponse(con);
 
                 con.disconnect();
 

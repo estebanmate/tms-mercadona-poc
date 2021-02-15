@@ -7,9 +7,6 @@ import org.springframework.context.annotation.Import;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-/**
- * @author s.nechkin
- */
 @Import(StompBrokerPropertiesConfiguration.class)
 @SpringBootApplication
 public class GatewayApplication implements WebMvcConfigurer {
