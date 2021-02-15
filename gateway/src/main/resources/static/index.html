@@ -10,9 +10,9 @@
     <script src="/poc.js"></script>
 </head>
 <body onload="connect();">
-<div>
-    <div>
-        <a href="logout">logout</a>
+<div id="main-content" class="container">
+    <div align="right">
+        <a href="logout">LOGOUT <span id="user-id"></span> </a>
     </div>
     <hr>
     <div>
@@ -30,11 +30,9 @@
         <button onclick="sendMessage();">Send</button>
     </div>
     <hr>
-    <div><b>Stomp integration - messages sent via StompSession:</b></div>
     <div id="stomp-integration">
-        <div>Global: <span class="global"></span></div>
-        <div>User: <span class="echo-user"></span></div>
-        <div>Window: <span class="echo-window"></span></div>
+        <div>GLOBAL ==> <span class="global"></span></div>
+        <div>USER ==> <span class="echo-user"></span></div>
     </div>
     <hr>
 </div>

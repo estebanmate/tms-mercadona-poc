@@ -72,7 +72,7 @@ public class MessageController {
                     out.flush();
                 }
 
-                soutResponse(con);
+//                soutResponse(con);
 
                 con.disconnect();
 
@@ -82,25 +82,25 @@ public class MessageController {
 
         }
 
-        private void soutResponse(HttpURLConnection con) throws IOException {
-            int status = con.getResponseCode();
-
-            Reader streamReader;
-            if (status > 299) {
-                streamReader = new InputStreamReader(con.getErrorStream());
-            } else {
-                streamReader = new InputStreamReader(con.getInputStream());
-            }
-
-            BufferedReader in = new BufferedReader(streamReader);
-            String inputLine;
-            StringBuffer content = new StringBuffer();
-            while ((inputLine = in.readLine()) != null) {
-                content.append(inputLine);
-            }
-            in.close();
-
-            System.out.println(content);
-        }
+//        private void soutResponse(HttpURLConnection con) throws IOException {
+//            int status = con.getResponseCode();
+//
+//            Reader streamReader;
+//            if (status > 299) {
+//                streamReader = new InputStreamReader(con.getErrorStream());
+//            } else {
+//                streamReader = new InputStreamReader(con.getInputStream());
+//            }
+//
+//            BufferedReader in = new BufferedReader(streamReader);
+//            String inputLine;
+//            StringBuffer content = new StringBuffer();
+//            while ((inputLine = in.readLine()) != null) {
+//                content.append(inputLine);
+//            }
+//            in.close();
+//
+//            System.out.println(content);
+//        }
     }
 }

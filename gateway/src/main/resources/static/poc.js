@@ -4,18 +4,17 @@
         var socketSessionId = null;
 
         var domIdByMessageOrigin = {
-            "RELAY": "stomp-relay",
-            "RABBIT": "rabbit",
             "INTEGRATION": "stomp-integration"
         };
 
         var domClassByRoutingKey = {
             "global": "global",
-            "echo.user": "echo-user",
-            "echo.window": "echo-window"
+            "echo.user": "echo-user"
         };
 
         function connect() {
+	        document.getElementById('user-id').innerHTML = 'USER';
+
             var socket = new SockJS('/sockjs');
 
             stomp = Stomp.over(socket);
@@ -41,9 +40,9 @@
                     processMessage("echo.user", message.body);
                 });
 
-                stomp.subscribe('/user/exchange/amq.direct/echo.user.StompRelay', function (message) {
-                    processMessage("echo.user", message.body);
-                });
+//                stomp.subscribe('/user/exchange/amq.direct/echo.user.StompRelay', function (message) {
+//                    processMessage("echo.user", message.body);
+//                });
             }, stompDisconnectErrorCallback);
 
             socketSessionId = generateSessionId();
@@ -99,8 +98,6 @@
         function setConnected(connected) {
             document.getElementById('connect').disabled = connected;
             document.getElementById('disconnect').disabled = !connected;
-            clearMessages(document.getElementById('stomp-relay'));
-            clearMessages(document.getElementById('rabbit'));
             clearMessages(document.getElementById('stomp-integration'));
         }
 
@@ -112,7 +109,7 @@
         function clearMessages(wrapper) {
             document.getElementsByClassName('global').innerHTML = '';
             document.getElementsByClassName('echo-user').innerHTML = '';
-            document.getElementsByClassName('echo-window').innerHTML = '';
+ //           document.getElementsByClassName('echo-window').innerHTML = '';
         }
 
         function disconnect() {
@@ -138,7 +135,7 @@
             var messageDto = JSON.parse(message);
             var wrapperDomId = domIdByMessageOrigin[messageDto.origin];
             var messageDisplayDomClass = domClassByRoutingKey[routingKey];
-            var text = "[" + messageDto.timestamp + "] " + messageDto.text;
+            var text = "Timestamp: [" + messageDto.timestamp + "] Message: [" + messageDto.text + "]";
             appendMessage(wrapperDomId, messageDisplayDomClass, text);
         }
 
