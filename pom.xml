@@ -26,8 +26,6 @@
     <modules>
         <module>gateway</module>
         <module>common</module>
-        <module>sender-stomp-relay</module>
-        <module>sender-rabbit</module>
         <module>sender-stomp-integration</module>
     </modules>
 

@@ -175,11 +175,12 @@
 
     </script>
 </head>
-<body onload="connect()">
+<body onload="connect();">
 <div>
     <div>
         <a href="logout">logout</a>
     </div>
+    <hr>
     <div>
         <button id="connect" onclick="connect();">Connect</button>
         <button id="disconnect" disabled="disabled" onclick="disconnect();">Disconnect</button>
@@ -188,29 +189,20 @@
         <button id="global-subscribe" onclick="globalSubscribe();">Subscribe to global topic</button>
         <button id="global-unsubscribe" disabled="disabled" onclick="globalUnsubscribe();">Unsubscribe from global topic</button>
     </div>
+    <hr>
     <div>
         <label for="message">Message</label>
         <input type="text" id="message"/>
         <button onclick="sendMessage();">Send</button>
     </div>
-    <div><b>Stomp relay - messages sent via SimpMessaginTemplate:</b></div>
-    <div id="stomp-relay">
-        <div>Global: <span class="global"></span></div>
-        <div>User: <span class="echo-user"></span></div>
-        <div>Window: <span class="echo-window"></span></div>
-    </div>
-    <div><b>RabbitMQ - messages sent via RabbitTemplate:</b></div>
-    <div id="rabbit">
-        <div>Global: <span class="global"></span></div>
-        <div>User: <span class="echo-user"></span></div>
-        <div>Window: <span class="echo-window"></span></div>
-    </div>
-    <div><b>Stomp intergration - messages sent via StompSession:</b></div>
+    <hr>
+    <div><b>Stomp integration - messages sent via StompSession:</b></div>
     <div id="stomp-integration">
         <div>Global: <span class="global"></span></div>
         <div>User: <span class="echo-user"></span></div>
         <div>Window: <span class="echo-window"></span></div>
     </div>
+    <hr>
 </div>
 </body>
 </html>

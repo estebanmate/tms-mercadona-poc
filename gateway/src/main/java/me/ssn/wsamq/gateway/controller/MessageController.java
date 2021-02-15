@@ -44,11 +44,8 @@ public class MessageController {
     public void messageHandler(String message,
                                @Header(CustomHeaders.HEADER_SCOKET_SESSION_ID) String socketSessionId,
                                Principal principal) {
-        Assert.notNull(principal);
 
         executor.execute(new SendTask("http://localhost:8002/echo", principal.getName(), socketSessionId, message));
-        executor.execute(new SendTask("http://localhost:8003/echo", principal.getName(), socketSessionId, message));
-        executor.execute(new SendTask("http://localhost:8004/echo", principal.getName(), socketSessionId, message));
     }
 
     @AllArgsConstructor
