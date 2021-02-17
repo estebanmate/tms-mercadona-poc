@@ -15,7 +15,7 @@
         function connect() {
 	        document.getElementById('user-id').innerHTML = 'USER';
 
-            var socket = new SockJS('/sockjs');
+            var socket = new SockJS('/pocsocket');
 
             stomp = Stomp.over(socket);
 
@@ -46,12 +46,12 @@
             }, stompDisconnectErrorCallback);
 
             socketSessionId = generateSessionId();
-            var socketWindow = new SockJS('/sockjs', [], {
+            var socketWindow = new SockJS('/pocsocket', [], {
                 sessionId: function () {return socketSessionId;}
             });
 
             // a separate stomp connection with "useSocketSession" header set on connect,
-            // see me.ssn.wsamq.gateway.config.WebSocketConfiguration.configureClientInboundChannel
+            // see com.vass.wsamq.gateway.config.WebSocketConfiguration.configureClientInboundChannel
             stompWindow = Stomp.over(socketWindow);
 
             // remove noise from heartbeats for debug purposes
@@ -109,7 +109,6 @@
         function clearMessages(wrapper) {
             document.getElementsByClassName('global').innerHTML = '';
             document.getElementsByClassName('echo-user').innerHTML = '';
- //           document.getElementsByClassName('echo-window').innerHTML = '';
         }
 
         function disconnect() {
@@ -157,3 +156,14 @@
             }
             return ret.join("");
         }
+
+$(function () {
+    $("form").on('submit', function (e) {
+        e.preventDefault();
+    });
+    $( "#connect" ).click(function() { connect(); });
+    $( "#disconnect" ).click(function() { disconnect(); });
+    $( "#global-subscribe" ).click(function() { globalSubscribe(); });
+    $( "#global-unsubscribe" ).click(function() { globalUnsubscribe(); });
+    $( "#send" ).click(function() { sendMessage(); });
+});

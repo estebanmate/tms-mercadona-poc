@@ -11,25 +11,49 @@
 </head>
 <body onload="connect();">
 <div id="main-content" class="container">
-    <div align="right">
-        <a href="logout">LOGOUT <span id="user-id"></span> </a>
+    <div class="row" align="right">
+        <a href="logout" class="btn btn-danger btn-sm enabled" role="button" aria-disabled="true">LOGOUT <span id="user-id"></span></a>
     </div>
-    <hr>
-    <div>
-        <button id="connect" onclick="connect();">Connect</button>
-        <button id="disconnect" disabled="disabled" onclick="disconnect();">Disconnect</button>
+    <div class="row">
+        <hr>
     </div>
-    <div>
-        <button id="global-subscribe" onclick="globalSubscribe();">Subscribe to global topic</button>
-        <button id="global-unsubscribe" disabled="disabled" onclick="globalUnsubscribe();">Unsubscribe from global topic</button>
+    <div class="row">
+	    <div class="col-md-6">
+	        <form class="form-inline">
+	            <div class="form-group">
+	                <label for="connect">WebSocket connection:</label>
+	                <button id="connect" class="btn btn-success" type="submit">Connect</button>
+	                <button id="disconnect" class="btn btn-danger" type="submit" disabled>Disconnect</button>
+	            </div>
+	        </form>
+	    </div>
+	    <div class="col-md-6">
+	        <form class="form-inline">
+	            <div class="form-group">
+	                <label for="connect">Global Topic Subscription:</label>
+	                <button id="global-subscribe" class="btn btn-success" type="submit">Subscribe</button>
+	                <button id="global-unsubscribe" class="btn btn-danger" type="submit" disabled>Unsubscribe</button>
+	            </div>
+	        </form>
+	    </div> 
     </div>
-    <hr>
-    <div>
-        <label for="message">Message</label>
-        <input type="text" id="message"/>
-        <button onclick="sendMessage();">Send</button>
+    <div class="row">
+        <hr>
     </div>
-    <hr>
+    <div class="row">
+	    <div class="col-md-6">
+	        <form class="form-inline">
+	            <div class="form-group">
+	                <label for="name">Message:</label>
+	                <input type="text" id="message" class="form-control" placeholder="Message here...">
+	            </div>
+	            <button id="send" class="btn btn-primary" type="submit">Send</button>
+	        </form>
+	    </div>    
+    </div>
+    <div class="row">
+        <hr>
+    </div>
     <div id="stomp-integration">
         <div>GLOBAL ==> <span class="global"></span></div>
         <div>USER ==> <span class="echo-user"></span></div>
